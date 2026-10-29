@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suporte ao Fã</title>
+  <link rel="stylesheet" href="suporte.css">
+</head>
+<body>
+  <header>
+    <h1>🎶 Suporte ao Fã 🎶</h1>
+    <p>Estamos aqui para te ajudar!</p>
+    <img src="stg.png (2).png" alt="Logo da Marca" class="logo">
+  </header>
+
+  <main class="support-container">
+    <form id="supportForm">
+      <div class="form-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" placeholder="Digite seu nome completo" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" placeholder="Digite seu melhor e-mail" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Assunto</label>
+        <select id="subject" required>
+          <option value="">Selecione...</option>
+          <option value="ingressos">Problemas com ingressos</option>
+          <option value="perfil">Problemas com perfil</option>
+          <option value="pagamento">Dúvidas sobre pagamento</option>
+          <option value="outros">Outros</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" rows="5" placeholder="Descreva sua dúvida ou problema..." required></textarea>
+      </div>
+      <button type="submit" class="send-btn">Enviar</button>
+    </form>
+    <p id="successMessage" class="hidden">✅ Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.</p>
+  </main>
+
+  <script src="suporte.js"></script>
+</body>
+</html>

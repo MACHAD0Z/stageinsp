@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    text-align: center;
+  }
+  
+  header {
+    padding: 20px;
+    background: rgba(0,0,0,0.6);
+    border-bottom: 2px solid #ff00ff;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+  }
+  
+  p {
+    color: #ccc;
+  }
+  
+  .support-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(20, 20, 40, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ff00ff;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff00ff;
+    border-radius: 8px;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+  }
+  
+  .send-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+  }
+  
+  .hidden {
+    display: none;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #00ffcc;
+  }
+  
+ /* Logo no suporte - canto superior esquerdo sem brilho */
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 150px;   /* controla o tamanho */
+    height: auto;
+    border-radius: 0; /* sem borda arredondada */
+    box-shadow: none; /* sem brilho */
+  }
+  

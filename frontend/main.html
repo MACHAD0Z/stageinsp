@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Made in Brazil</title>
+  <link rel="stylesheet" href="main_style.css">
+  <link rel="shortcut icon" href="logo.stb.png" type="image/x-icon">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="img/logo_Stage_in_Brasil.png" alt="Logo Made in Brazil" />
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Pesquisar..." />
+    <button>🔍</button>
+  </div>
+
+  <nav>
+    <a href="#" id="login-link">Login</a>
+    <a href="suporte.html" id="support-link">Suporte ao Fã</a>
+    <a href="ingressos.html" id="tickets-link">Comprar Ingressos</a>
+    <a href="perfil.html">
+      <img src="img/foto.branca.jpg" alt="Perfil" style="width:32px; height:32px; border-radius:50%; vertical-align:middle;">
+    </a>
+  </nav>
+
+  <button class="language-selector" id="language-selector" onclick="toggleLanguage()">PT</button>
+</header>
+
+<section class="carousel" aria-label="Galeria de imagens">
+  <div class="slides" id="slides" role="list">
+    <img src="img/back.jpeg" alt="Slide 1 dualipa" role="listitem" />
+    <img src="img/green.jpeg" alt="Slide 2 nacional" role="listitem" />
+    <img src="img/katy perry.jpeg" alt="Slide 3 dragons" role ="listitem" />
+    <img src="img/maria.jpeg" alt="Slide 4 oasis" role ="listitem" />
+    <img src="img/travis.jpeg" alt="Slide 5 rock" role ="listitem" />
+  </div>
+  <button class="prev" onclick="prevSlide()">❮</button>
+  <button class="next" onclick="nextSlide()">❯</button>
+</section>
+
+<section class="news-section" aria-label="Últimas notícias">
+  <h2 id="news-title">Últimas Notícias</h2>
+  <div class="news-item">
+    <img src="img/the weeknd.jfif" alt="Imagem notícia 1" />
+    <div>
+      <h3>The Weeknd voltará ao Brasil em 2026 com turnê solo; saiba todos os detalhes:</h3>
+      <p>O cantor The Weeknd voltará ao Brasil em 2026 com a turnê “After Hours Til Dawn”, trazendo seus maiores sucessos e um espetáculo visual marcante. As apresentações devem ocorrer entre abril e maio, nos estádios Morumbi (São Paulo) e Engenhão (Rio de Janeiro). A informação foi divulgada pelo jornalista Eduardo Reis e reforçada pelo próprio artista em suas redes sociais, gerando grande expectativa entre os fãs brasileiros..</p>
+    </div>
+  </div>
+  <div class="news-item">
+    <img src="img/sabrina-carpenter.avif" alt="Imagem notícia 2" />
+    <div>
+      <h3>Sabrina Carpenter, uma das atrações do Lollapalooza Brasil 2026:</h3>
+      <p>Depois de diversos boatos sobre seu retorno ao Brasil, a notícia que todos esperávamos está confirmada: Sabrina Carpenter volta para cá em 2026, como parte da programação do Lollapalooza Brasil. Essa será a primeira vez dela no festival.</p>
+    </div>
+  </div>
+  <div class="news-item">
+    <img src="img/deftones.jfif" alt="Imagem notícia 3" />
+    <div>
+      <h3>EXCLUSIVO: Deftones vem ao Brasil em 2026, segundo baterista</h3>
+      <p>O baterista Abe Cunningham revelou que o Deftones voltará ao Brasil em 2026, durante bate-papo de divulgação do novo álbum “Private Music”, que será lançado no dia 22. A última vinda da banda ao país foi em 2015, quando tocaram no Rock in Rio e abriram para o System of a Down em São Paulo.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Made in Brazil. Todos os direitos reservados.
+</footer>
+
+<div class="cookie-banner" id="cookie-banner">
+  <span id="cookie-text">Este site usa cookies para melhorar sua experiência.</span>
+  <button id="accept-cookies" onclick="acceptCookies()">Aceitar</button>
+  <button id="decline-cookies" onclick="declineCookies()">Recusar</button>
+</div>
+
+<div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+  <div class="auth-content">
+    <span class="close-btn" onclick="closeModal()" aria-label="Fechar modal">&times;</span>
+    <div id="login-form">
+      <h2 id="auth-title">Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginSenha" placeholder="Senha" />
+      <button onclick="login()">Entrar</button>
+      <p id="no-account">Não tem conta? <a href="#" onclick="showCadastro()">Cadastre-se</a></p>
+    </div>
+    <div id="cadastro-form" style="display:none;">
+      <h2>Cadastro</h2>
+      <input type="text" id="cadNome" placeholder="Nome" />
+      <input type="text" id="cadCpf" placeholder="CPF" />
+      <input type="email" id="cadEmail" placeholder="Email" />
+      <input type="password" id="cadSenha" placeholder="Senha" />
+      <button onclick="cadastrar()">Cadastrar</button>
+      <p id="has-account">Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- VLibras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<!-- BOTÃO DE VOZ ABAIXO DO VLibras -->
+<div class="voice-widget">
+  <select id="voice-lang">
+    <option value="pt">Português</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+  </select>
+  <button id="speak-btn">🔊 Ouvir</button>
+  <button id="stop-btn">⏹️ Parar</button>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget("https://vlibras.gov.br/app");
+</script>
+<script src="main_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compra de Ingressos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #0056d2;
+      padding: 15px;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+    }
+    .container {
+      flex: 2;
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .show-content {
+      display: none;
+      padding: 10px;
+    }
+    .ticket {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .ticket button {
+      background: #0056d2;
+      border: none;
+      color: white;
+      font-size: 18px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .ticket button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+    .ticket span {
+      font-size: 16px;
+    }
+    .resumo {
+      flex: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+    .resumo h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+    .resumo-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+    .total {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+    }
+    .comprar-btn {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: #0056d2;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .comprar-btn:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>Stage In Brazil</header>
+  <div class="main">
+    <div class="container">
+      <!-- Show Travis Scott -->
+      <h2 onclick="toggleShow('travis')">06 de Setembro — Travis Scott</h2>
+      <div id="travis" class="show-content">
+        <div class="ticket">
+          <span>Inteira — R$ 975,00</span>
+          <div>
+            <button onclick="updateTicket('travis_inteira', -1)">-</button>
+            <span id="travis_inteira">0</span>
+            <button onclick="updateTicket('travis_inteira', 1)">+</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <span>Meia-Entrada — R$ 487,50</span>
+          <div>
+            <button onclick="updateTicket('travis_meia', -1)">-</button>
+            <span id="travis_meia">0</span>
+            <button onclick="updateTicket('travis_meia', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Green Day -->
+      <h2 onclick="toggleShow('green')">07 de Setembro — Green Day</h2>
+      <div id="green" class="show-content">
+        <div class="ticket">
+          <span>Inteira — R$ 975,00</span>
+          <div>
+            <button onclick="updateTicket('green_inteira', -1)">-</button>
+            <span id="green_inteira">0</span>
+            <button onclick="updateTicket('green_inteira', 1)">+</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <span>Meia-Entrada — R$ 487,50</span>
+          <div>
+            <button onclick="updateTicket('green_meia', -1)">-</button>
+            <span id="green_meia">0</span>
+            <button onclick="updateTicket('green_meia', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Backstreet Boys -->
+      <h2 onclick="toggleShow('bsb')">12 de Setembro — Backstreet Boys</h2>
+      <div id="bsb" class="show-content">
+        <div class="ticket">
+          <span>Inteira — R$ 975,00</span>
+          <div>
+            <button onclick="updateTicket('bsb_inteira', -1)">-</button>
+            <span id="bsb_inteira">0</span>
+            <button onclick="updateTicket('bsb_inteira', 1)">+</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <span>Meia-Entrada — R$ 487,50</span>
+          <div>
+            <button onclick="updateTicket('bsb_meia', -1)">-</button>
+            <span id="bsb_meia">0</span>
+            <button onclick="updateTicket('bsb_meia', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Mariah Carey -->
+      <h2 onclick="toggleShow('mariah')">13 de Setembro — Mariah Carey</h2>
+      <div id="mariah" class="show-content">
+        <div class="ticket">
+          <span>Inteira — R$ 975,00</span>
+          <div>
+            <button onclick="updateTicket('mariah_inteira', -1)">-</button>
+            <span id="mariah_inteira">0</span>
+            <button onclick="updateTicket('mariah_inteira', 1)">+</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <span>Meia-Entrada — R$ 487,50</span>
+          <div>
+            <button onclick="updateTicket('mariah_meia', -1)">-</button>
+            <span id="mariah_meia">0</span>
+            <button onclick="updateTicket('mariah_meia', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Katy Perry -->
+      <h2 onclick="toggleShow('katy')">14 de Setembro — Katy Perry</h2>
+      <div id="katy" class="show-content">
+        <div class="ticket">
+          <span>Inteira — R$ 975,00</span>
+          <div>
+            <button onclick="updateTicket('katy_inteira', -1)">-</button>
+            <span id="katy_inteira">0</span>
+            <button onclick="updateTicket('katy_inteira', 1)">+</button>
+          </div>
+        </div>
+        <div class="ticket">
+          <span>Meia-Entrada — R$ 487,50</span>
+          <div>
+            <button onclick="updateTicket('katy_meia', -1)">-</button>
+            <span id="katy_meia">0</span>
+            <button onclick="updateTicket('katy_meia', 1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumo da Seleção -->
+    <div class="resumo">
+      <h3>Resumo da seleção</h3>
+      <div id="resumoItens"></div>
+      <div class="total">
+        <span>Total</span>
+        <span>R$ <span id="total">0,00</span></span>
+      </div>
+      <button id="comprarBtn" class="comprar-btn" disabled onclick="comprar()">Comprar</button>
+    </div>
+  </div>
+
+  <script>
+    let prices = {
+      travis_inteira: 975.00,
+      travis_meia: 487.50,
+      green_inteira: 975.00,
+      green_meia: 487.50,
+      bsb_inteira: 975.00,
+      bsb_meia: 487.50,
+      mariah_inteira: 975.00,
+      mariah_meia: 487.50,
+      katy_inteira: 975.00,
+      katy_meia: 487.50
+    };
+
+    let cart = {
+      travis_inteira: 0,
+      travis_meia: 0,
+      green_inteira: 0,
+      green_meia: 0,
+      bsb_inteira: 0,
+      bsb_meia: 0,
+      mariah_inteira: 0,
+      mariah_meia: 0,
+      katy_inteira: 0,
+      katy_meia: 0
+    };
+
+    function updateTicket(ticket, amount) {
+      cart[ticket] = Math.max(0, cart[ticket] + amount);
+      document.getElementById(ticket).innerText = cart[ticket];
+      updateResumo();
+    }
+
+    function updateResumo() {
+      let resumoDiv = document.getElementById("resumoItens");
+      resumoDiv.innerHTML = "";
+      let total = 0;
+      let totalQtd = 0;
+
+      for (let key in cart) {
+        if (cart[key] > 0) {
+          let nome = key.includes("inteira") ? "Inteira" : "Meia-Entrada";
+          let show = key.split("_")[0];
+          show = show.charAt(0).toUpperCase() + show.slice(1);
+          if(show==="Travis") show="Travis Scott";
+          if(show==="Bsb") show="Backstreet Boys";
+          if(show==="Mariah") show="Mariah Carey";
+          if(show==="Katy") show="Katy Perry";
+          if(show==="Green") show="Green Day";
+
+          let preco = prices[key];
+          let qtd = cart[key];
+          total += qtd * preco;
+          totalQtd += qtd;
+
+          let item = document.createElement("div");
+          item.className = "resumo-item";
+          item.innerHTML = `<span>${qtd}x ${show} (${nome})</span><span>R$ ${(qtd * preco).toFixed(2).replace(".", ",")}</span>`;
+          resumoDiv.appendChild(item);
+        }
+      }
+
+      document.getElementById("total").innerText = total.toFixed(2).replace(".", ",");
+      document.getElementById("comprarBtn").disabled = totalQtd === 0;
+    }
+
+    function toggleShow(id) {
+      let content = document.getElementById(id);
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    function comprar() {
+      let resumoDiv = document.getElementById("resumoItens");
+      resumoDiv.innerHTML = "";
+
+      let pagamentoForm = document.createElement("div");
+      pagamentoForm.innerHTML = `
+        <h3>Escolha a forma de pagamento</h3>
+        <div style="margin-bottom:10px;">
+          <input type="radio" name="pagamento" id="debito" value="debito" checked>
+          <label for="debito">Débito</label>
+          <input type="radio" name="pagamento" id="credito" value="credito" style="margin-left:15px;">
+          <label for="credito">Crédito</label>
+        </div>
+        <div style="margin-bottom:10px;">
+          <label>Nome do Titular:</label><br>
+          <input type="text" placeholder="Nome como no cartão" style="width:100%; padding:8px; margin-top:5px;">
+        </div>
+        <div style="margin-bottom:10px;">
+          <label>Número do cartão:</label><br>
+          <input type="text" placeholder="0000 0000 0000 0000" maxlength="16" pattern="[0-9]{16}" 
+                 style="width:100%; padding:8px; margin-top:5px;" 
+                 oninput="this.value = this.value.replace(/\\D/g,'');">
+        </div>
+        <div style="margin-bottom:10px; display:flex; gap:10px;">
+          <div style="flex:1;">
+            <label>Validade (MM/AA):</label><br>
+            <input type="text" placeholder="MM/AA" maxlength="5"
+                   style="width:100%; padding:8px; margin-top:5px;"
+                   oninput="this.value = this.value.replace(/[^0-9/]/g,'');
+                            if(this.value.length===2 && !this.value.includes('/')) this.value += '/';">
+          </div>
+          <div style="flex:1;">
+            <label>CVV:</label><br>
+            <input type="text" placeholder="123" maxlength="3" 
+                   style="width:100%; padding:8px; margin-top:5px;"
+                   oninput="this.value = this.value.replace(/\\D/g,'');">
+          </div>
+        </div>
+        <button onclick="finalizarCompra()" class="comprar-btn">Finalizar Compra</button>
+      `;
+      resumoDiv.appendChild(pagamentoForm);
+
+      document.getElementById("comprarBtn").disabled = true;
+    }
+
+    function finalizarCompra() {
+      alert("Pagamento processado! Obrigado pela compra.");
+      location.reload();
+    }
+  </script>
+</body>
+</html>

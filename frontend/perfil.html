@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+  <!-- Botão lateral para redefinir senha -->
+  <button id="resetPasswordBtn" class="reset-btn">Redefinir Senha</button>
+
+  <!-- Botão de idioma no canto superior direito -->
+  <button id="language-selector">PT</button>
+
+  <header>
+    <h1 id="profile-header">Meu Perfil</h1>
+  </header>
+
+  <main class="profile-container">
+    <!-- Foto de perfil -->
+    <div class="profile-pic">
+      <img id="profileImage" src="img/default-profile.png" alt="Foto de perfil">
+      <label class="upload-btn">Alterar Foto
+        <input type="file" id="fileInput" accept="image/*" style="display:none;">
+      </label>
+    </div>
+
+    <!-- Informações pessoais -->
+    <section class="personal-info">
+      <h2 id="personal-info-title">Informações Pessoais</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName" id="label-firstName">Nome</label>
+          <input type="text" id="firstName" placeholder="Nome como aparece em seu documento">
+        </div>
+        <div class="form-group">
+          <label for="lastName" id="label-lastName">Sobrenome</label>
+          <input type="text" id="lastName" placeholder="Sobrenome como aparece em seu documento">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="email" id="label-email">E-Mail</label>
+          <input type="email" id="email" placeholder="e-mail para notificações e recuperação de senha">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="country" id="label-country">País de Residência</label>
+          <input type="text" id="country" placeholder="O país onde você mora">
+        </div>
+        <div class="form-group">
+          <label for="docType" id="label-docType">Tipo de Documento</label>
+          <select id="docType">
+            <option>CPF</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cpf" id="label-cpf">CPF</label>
+          <input 
+            type="text" 
+            id="cpf" 
+            placeholder="O número do seu documento"
+            maxlength="11" 
+            pattern="\d{11}" 
+            oninput="this.value = this.value.replace(/\D/g, '')">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="countryCode" id="label-countryCode">Código do País</label>
+          <select id="countryCode">
+            <option>+55</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone" id="label-phone">Telefone</label>
+          <input 
+            type="text" 
+            id="phone" 
+            placeholder="Telefone para notificações e contato"
+            maxlength="11" 
+            oninput="this.value = this.value.replace(/\D/g, '')">
+        </div>
+      </div>
+      <button id="saveProfileBtn" class="save-btn">Salvar Alterações</button>
+    </section>
+
+    <!-- Ingressos -->
+    <section class="tickets">
+      <h2 id="tickets-title">Meus Ingressos</h2>
+      <ul id="tickets-list">
+        <li>🎟️ Show A - 10/09/2025 - São Paulo</li>
+        <li>🎟️ Show B - 25/10/2025 - Rio de Janeiro</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="perfil.js"></script>
+</body>
+</html>

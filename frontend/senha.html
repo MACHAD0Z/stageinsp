@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redefinir Senha</title>
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+  <!-- Botão de idioma no canto superior direito -->
+  <div id="language-selector">PT</div>
+
+  <header>
+    <h1 id="header-title">Redefinir Senha</h1>
+  </header>
+
+  <main class="profile-container">
+    <section class="personal-info">
+      <h2 id="password-section-title">Digite a nova senha</h2>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="newPassword" id="newPasswordLabel">Nova Senha</label>
+          <input type="password" id="newPassword" placeholder="Digite a nova senha">
+          <span id="newPasswordEye" class="eye-icon">👁️</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="confirmPassword" id="confirmPasswordLabel">Repita a Senha</label>
+          <input type="password" id="confirmPassword" placeholder="Repita a senha">
+          <span id="confirmPasswordEye" class="eye-icon">👁️</span>
+        </div>
+      </div>
+
+      <button id="savePasswordBtn" class="save-btn">Salvar Senha</button>
+    </section>
+  </main>
+
+  <script src="senha.js"></script>
+</body>
+</html>
